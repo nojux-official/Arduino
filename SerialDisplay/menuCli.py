@@ -4,7 +4,8 @@ class menu():
     def addItem(self, name, action):
         self.menuL.append([name, action])
         return len(self.menuL)-1
-    def remove
+    def removeItem(self, idd):
+        del self.menuL[idd]
     def execute(self, idd):
         self.menuL[idd][1]()
     def list(self, selected=0, limit=2):
