@@ -1,5 +1,12 @@
 from menuCli import menu
 
+menus=[]
+
+def switchMenu(menuId=0):
+    global m, menus, idd
+    m=menus[menuId]
+    idd=0
+
 def hello1():
     print 5
 def hello2():
@@ -8,28 +15,20 @@ def hello3():
     print 7
 
 m=menu()
+m.addItem("start", hello1)
+m.addItem("hellos", switchMenu, 1)
+m.addItem("exit", hello3)
+menus.append(m)
 
+m=menu()
 m.addItem("hello1", hello1)
 m.addItem("hello2", hello2)
-mId=m.addItem("hello3", hello3)
-m.addItem("hello1", hello1)
-m.addItem("hello2", hello2)
-mId=m.addItem("hello3", hello3)
-m.addItem("hello1", hello1)
-m.addItem("hello2", hello2)
-mId=m.addItem("hello3", hello3)
-m.addItem("hello1", hello1)
-m.addItem("hello2", hello2)
-mId=m.addItem("hello3", hello3)
-m.addItem("hello1", hello1)
-m.addItem("hello2", hello2)
-mId=m.addItem("hello3", hello3)
-m.addItem("hello1", hello1)
-m.addItem("hello2", hello2)
-mId=m.addItem("hello3", hello3)
-#m.execute(0)
+m.addItem("hello3", hello3)
+menus.append(m)
 
-idd=0
+switchMenu()
+
+mId=2
 
 while True:
     a=raw_input(">")
